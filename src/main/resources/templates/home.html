@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <link href="../static/css/bootswatch.css" th:href="@{/css/bootswatch.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8 offset-1">
+            <div>
+                <h2 id="titlename">SkyTravel</h2>
+            </div>
+            <div class="jumbotron">
+                <h1 class="display-3">Your first choice to book your tickets</h1>
+                <p class="lead">Wether you are a businessman or an executive or a simple employee or
+                    you just want to travel around the world</p>
+                <hr class="my-4"/>
+                <p>SkyTravel is here to find the best deals for you</p>
+                <p class="lead">
+                    <a style="color:blue" th:href="@{/welcome}">Book your tickets now!</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" th:src="@{/js/jquery-3.2.1.slim.min.js/}"></script>
+<script type="text/javascript" th:src="@{/js/popper.min.js/}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js/}"></script>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <!-- Bootstrap core CSS -->
+    <base href="/"/>
+    <link href="../static/css/bootswatch.css" th:href="@{/css/bootswatch.css}" rel="stylesheet"/>
+    <link href="../static/css/font-awesome.css" th:href="@{/css/font-awesome.css}" rel="stylesheet"/>
+    <link href="../static/css/font-awesome.min.css" th:href="@{/css/font-awesome.min.css}" rel="stylesheet"/>
+    <!-- Custom styles for this template -->
+    <link href="../static/css/full-slider.css" th:href="@{/css/full-slider.css}" rel="stylesheet"/>
+    <link href="../static/css/full.css" th:href="@{/css/full.css}" rel="stylesheet"/>
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="welcome.html"><img th:src="@{/images/plane.png}"/> Skytravel</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="welcome.html">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="booking.html">Book Tickets</a>
+                </li>
+                <div sec:authorize="isAuthenticated()">
+                    <li class="nav-item">
+                        <form th:action="@{/logout}" method="post">
+                            <button type="submit" class="btn btn-danger">Sign Out</button>
+                        </form>
+                    </li>
+                </div>
+            </ul>
+        </div>
+    </div>
+</nav>
+<section class="py-5"></section>
+<section class="py-5">
+    <div class="container-fluid" align="center">
+        <div class="row">
+            <div class="col-sm-8 offset-1">
+                <h2>Book your tickets</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="py-5">
+    <form th:action="@{/flightresults}" method="get">
+        <div class="row">
+            <div class="col-sm-4 offset-2">
+                <label><h4>Where are you now?</h4></label>
+                <input class="form-control" id="location" type="text" value="Athens"/>
+            </div>
+            <div class="col-sm-4 ">
+                <label><h4>Where do you want to go?</h4></label>
+                <input class="form-control" id="dest" name="dest" type="text"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 offset-2">
+                <label><h4>Select Departure Date</h4></label>
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type='date' class="form-control"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <label><h4>Select Return Date</h4></label>
+                <div class='input-group date' id='datetimepicker2'>
+                    <input type='date' class="form-control"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <br/><br/><br/><br/>
+        <div class="row">
+            <div class="col-sm-2 offset-8">
+                <button type="button" class="btn btn-warning" type="submit">Search!</button>
+            </div>
+        </div>
+    </form>
+</section>
+<footer class="py-5 bg-light">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="container">
+                <p class="m-0 text-center text-dark">Copyright &copy; Skytravel 2017</p><br/>
+                <form>
+                    <h3>Find Us</h3>
+                    <a th:href="@{#}"><img th:src="@{/images/Facebook.svg}"/></a>
+                    <a th:href="@{#}"><img th:src="@{/images/Google.svg}"/></a>
+                    <a th:href="@{#}"><img th:src="@{/images/Instagram.svg}"/></a>
+                    <a th:href="@{#}"><img th:src="@{/images/Linkedin.svg}"/></a>
+                    <a th:href="@{#}"><img th:src="@{/images/Pinterest.svg}"/></a>
+                </form>
+            </div>
+            <!-- /.container -->
+        </div>
+        <div class="col-md-5 offset-1">
+            <div class="form-group">
+                <label for="comment" class="text-dark">Comment:</label>
+                <textarea class="form-control" rows="5" id="comment"></textarea>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</footer>
+</body>
+</html>
